@@ -1,0 +1,236 @@
+▲ Next.js 16.2.9 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://10.0.2.15:3000
+- Environments: .env
+✓ Ready in 295ms
+
+ GET / 200 in 424ms (next.js: 142ms, application-code: 281ms)
+[browser] Encountered a script tag while rendering React component. Scripts inside React components are never executed when rendering on the client. Consider using template tag instead (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template). 
+[browser] Uncaught Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+      <SegmentViewNode type="page" pagePath="page.tsx">
+        <SegmentTrieNode>
+        <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+          <Home params={Promise} searchParams={Promise}>
+            <div className="min-h-scre...">
+              <div>
+              <div className="relative z...">
+                <Navigation>
+                  <header className="sticky top...">
+                    <div className="max-w-7xl ...">
+                      <div className="grid grid-...">
+                        <button>
+                        <nav>
+                        <div className="flex items...">
+                          <div className="hidden sm:...">
+                            <Sparkles>
+                            <span>
+                            <span>
+                            <span className="text-[#bbb...">
++                             27
+-                             0
+                              ...
+                          ...
+                ...
+      ...
+
+    at span (unknown)
+    at Navigation (src/components/cidseguro/Navigation.tsx:105:15)
+    at Home (src/app/page.tsx:54:9)
+  103 |               <span className="text-[#00E676] font-semibold">Nv.{level}</span>
+  104 |               <span className="text-[#444]">•</span>
+> 105 |               <span className="text-[#bbb] font-medium">{points} pts</span>
+      |               ^
+  106 |             </div>
+  107 |
+  108 |             {/* Notifications */}
+prisma:query SELECT `main`.`Notification`.`id`, `main`.`Notification`.`title`, `main`.`Notification`.`content`, `main`.`Notification`.`type`, `main`.`Notification`.`priority`, `main`.`Notification`.`read`, `main`.`Notification`.`createdAt` FROM `main`.`Notification` WHERE 1=1 ORDER BY `main`.`Notification`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Article`.`id`, `main`.`Article`.`title` FROM `main`.`Article` WHERE 1=1 LIMIT ? OFFSET ?
+ GET /api/notifications 200 in 166ms (next.js: 87ms, application-code: 79ms)
+prisma:query SELECT `main`.`Tip`.`id`, `main`.`Tip`.`title` FROM `main`.`Tip` WHERE 1=1 LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Quiz`.`id`, `main`.`Quiz`.`title` FROM `main`.`Quiz` WHERE 1=1 LIMIT ? OFFSET ?
+prisma:query SELECT COUNT(*) AS `_count$_all` FROM (SELECT `main`.`CommunityPost`.`id` FROM `main`.`CommunityPost` WHERE 1=1 LIMIT ? OFFSET ?) AS `sub`
+prisma:query SELECT COUNT(*) AS `_count$_all` FROM (SELECT `main`.`Notification`.`id` FROM `main`.`Notification` WHERE 1=1 LIMIT ? OFFSET ?) AS `sub`
+ POST /api/seed 200 in 171ms (next.js: 120ms, application-code: 52ms)
+Erro no endpoint de chat: ReferenceError: streamText is not defined
+    at POST (src/app/api/chat/route.ts:47:20)
+  45 |     const userId = metadata.userId || body.userId || 'default-user';
+  46 |
+> 47 |     const stream = streamText({
+     |                    ^
+  48 |       model: getModel(modelName),
+  49 |       messages: await convertToModelMessages(messages),
+  50 |       system: SYSTEM_PROMPT,
+ POST /api/chat 500 in 260ms (next.js: 133ms, application-code: 127ms)
+Erro no endpoint de chat: ReferenceError: streamText is not defined
+    at POST (src/app/api/chat/route.ts:47:20)
+  45 |     const userId = metadata.userId || body.userId || 'default-user';
+  46 |
+> 47 |     const stream = streamText({
+     |                    ^
+  48 |       model: getModel(modelName),
+  49 |       messages: await convertToModelMessages(messages),
+  50 |       system: SYSTEM_PROMPT,
+ POST /api/chat 500 in 57ms (next.js: 1967µs, application-code: 55ms)
+✓ Compiled in 139ms
+ GET / 200 in 128ms (next.js: 83ms, application-code: 45ms)
+✓ Compiled in 0ms
+ GET / 200 in 310ms (next.js: 49ms, application-code: 261ms)
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Notification`.`id`, `main`.`Notification`.`title`, `main`.`Notification`.`content`, `main`.`Notification`.`type`, `main`.`Notification`.`priority`, `main`.`Notification`.`read`, `main`.`Notification`.`createdAt` FROM `main`.`Notification` WHERE 1=1 ORDER BY `main`.`Notification`.`createdAt` DESC LIMIT ? OFFSET ?
+ GET /api/notifications 200 in 95ms (next.js: 47ms, application-code: 48ms)
+prisma:query SELECT `main`.`Article`.`id`, `main`.`Article`.`title` FROM `main`.`Article` WHERE 1=1 LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Tip`.`id`, `main`.`Tip`.`title` FROM `main`.`Tip` WHERE 1=1 LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Quiz`.`id`, `main`.`Quiz`.`title` FROM `main`.`Quiz` WHERE 1=1 LIMIT ? OFFSET ?
+[browser] Uncaught Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+      <SegmentViewNode type="page" pagePath="page.tsx">
+        <SegmentTrieNode>
+        <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+          <Home params={Promise} searchParams={Promise}>
+            <div className="min-h-scre...">
+              <div>
+              <div className="relative z...">
+                <Navigation>
+                  <header className="sticky top...">
+                    <div className="max-w-7xl ...">
+                      <div className="grid grid-...">
+                        <button>
+                        <nav>
+                        <div className="flex items...">
+                          <div className="hidden sm:...">
+                            <Sparkles>
+                            <span>
+                            <span>
+                            <span className="text-[#bbb...">
++                             33
+-                             0
+                              ...
+                          ...
+                ...
+      ...
+
+    at span (unknown)
+    at Navigation (src/components/cidseguro/Navigation.tsx:105:15)
+    at Home (src/app/page.tsx:54:9)
+  103 |               <span className="text-[#00E676] font-semibold">Nv.{level}</span>
+  104 |               <span className="text-[#444]">•</span>
+> 105 |               <span className="text-[#bbb] font-medium">{points} pts</span>
+      |               ^
+  106 |             </div>
+  107 |
+  108 |             {/* Notifications */}
+prisma:query SELECT COUNT(*) AS `_count$_all` FROM (SELECT `main`.`CommunityPost`.`id` FROM `main`.`CommunityPost` WHERE 1=1 LIMIT ? OFFSET ?) AS `sub`
+prisma:query SELECT COUNT(*) AS `_count$_all` FROM (SELECT `main`.`Notification`.`id` FROM `main`.`Notification` WHERE 1=1 LIMIT ? OFFSET ?) AS `sub`
+ POST /api/seed 200 in 51ms (next.js: 31ms, application-code: 20ms)
+ GET / 200 in 52ms (next.js: 4ms, application-code: 48ms)
+ GET /api/notifications 200 in 10ms (next.js: 2ms, application-code: 8ms)
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Notification`.`id`, `main`.`Notification`.`title`, `main`.`Notification`.`content`, `main`.`Notification`.`type`, `main`.`Notification`.`priority`, `main`.`Notification`.`read`, `main`.`Notification`.`createdAt` FROM `main`.`Notification` WHERE 1=1 ORDER BY `main`.`Notification`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Article`.`id`, `main`.`Article`.`title` FROM `main`.`Article` WHERE 1=1 LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Tip`.`id`, `main`.`Tip`.`title` FROM `main`.`Tip` WHERE 1=1 LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Quiz`.`id`, `main`.`Quiz`.`title` FROM `main`.`Quiz` WHERE 1=1 LIMIT ? OFFSET ?
+prisma:query SELECT COUNT(*) AS `_count$_all` FROM (SELECT `main`.`CommunityPost`.`id` FROM `main`.`CommunityPost` WHERE 1=1 LIMIT ? OFFSET ?) AS `sub`
+prisma:query SELECT COUNT(*) AS `_count$_all` FROM (SELECT `main`.`Notification`.`id` FROM `main`.`Notification` WHERE 1=1 LIMIT ? OFFSET ?) AS `sub`
+ POST /api/seed 200 in 13ms (next.js: 5ms, application-code: 8ms)
+[browser] Uncaught Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+      <SegmentViewNode type="page" pagePath="page.tsx">
+        <SegmentTrieNode>
+        <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+          <Home params={Promise} searchParams={Promise}>
+            <div className="min-h-scre...">
+              <div>
+              <div className="relative z...">
+                <Navigation>
+                  <header className="sticky top...">
+                    <div className="max-w-7xl ...">
+                      <div className="grid grid-...">
+                        <button>
+                        <nav>
+                        <div className="flex items...">
+                          <div className="hidden sm:...">
+                            <Sparkles>
+                            <span>
+                            <span>
+                            <span className="text-[#bbb...">
++                             33
+-                             0
+                              ...
+                          ...
+                ...
+      ...
+
+    at span (unknown)
+    at Navigation (src/components/cidseguro/Navigation.tsx:105:15)
+    at Home (src/app/page.tsx:54:9)
+  103 |               <span className="text-[#00E676] font-semibold">Nv.{level}</span>
+  104 |               <span className="text-[#444]">•</span>
+> 105 |               <span className="text-[#bbb] font-medium">{points} pts</span>
+      |               ^
+  106 |             </div>
+  107 |
+  108 |             {/* Notifications */}
+ POST /api/chat 200 in 1033ms (next.js: 134ms, application-code: 899ms)
+✓ Compiled in 184ms
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Notification`.`id`, `main`.`Notification`.`title`, `main`.`Notification`.`content`, `main`.`Notification`.`type`, `main`.`Notification`.`priority`, `main`.`Notification`.`read`, `main`.`Notification`.`createdAt` FROM `main`.`Notification` WHERE 1=1 ORDER BY `main`.`Notification`.`createdAt` DESC LIMIT ? OFFSET ?
+ GET /api/notifications 200 in 43ms (next.js: 31ms, application-code: 12ms)
+ GET / 200 in 151ms (next.js: 74ms, application-code: 77ms)
+ GET / 200 in 48ms (next.js: 5ms, application-code: 43ms)
+ GET / 200 in 16ms (next.js: 1509µs, application-code: 14ms)
+ GET / 200 in 16ms (next.js: 2ms, application-code: 13ms)
+✓ Compiled in 261ms
+prisma:query SELECT 1
+prisma:query SELECT `main`.`Notification`.`id`, `main`.`Notification`.`title`, `main`.`Notification`.`content`, `main`.`Notification`.`type`, `main`.`Notification`.`priority`, `main`.`Notification`.`read`, `main`.`Notification`.`createdAt` FROM `main`.`Notification` WHERE 1=1 ORDER BY `main`.`Notification`.`createdAt` DESC LIMIT ? OFFSET ?
+ GET /api/notifications 200 in 38ms (next.js: 31ms, application-code: 8ms)
+ GET / 200 in 120ms (next.js: 53ms, application-code: 68ms)
+ GET / 200 in 36ms (next.js: 2ms, application-code: 34ms)
+ GET / 200 in 24ms (next.js: 3ms, application-code: 20ms)
+ GET / 200 in 26ms (next.js: 12ms, application-code: 14ms)
+ GET / 200 in 240ms (next.js: 3ms, application-code: 237ms)
+prisma:query SELECT `main`.`Notification`.`id`, `main`.`Notification`.`title`, `main`.`Notification`.`content`, `main`.`Notification`.`type`, `main`.`Notification`.`priority`, `main`.`Notification`.`read`, `main`.`Notification`.`createdAt` FROM `main`.`Notification` WHERE 1=1 ORDER BY `main`.`Notification`.`createdAt` DESC LIMIT ? OFFSET ?
+ GET /api/notifications 200 in 19ms (next.js: 3ms, application-code: 15ms)
+prisma:query SELECT `main`.`Article`.`id`, `main`.`Article`.`title` FROM `main`.`Article` WHERE 1=1 LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Tip`.`id`, `main`.`Tip`.`title` FROM `main`.`Tip` WHERE 1=1 LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Quiz`.`id`, `main`.`Quiz`.`title` FROM `main`.`Quiz` WHERE 1=1 LIMIT ? OFFSET ?
+prisma:query SELECT COUNT(*) AS `_count$_all` FROM (SELECT `main`.`CommunityPost`.`id` FROM `main`.`CommunityPost` WHERE 1=1 LIMIT ? OFFSET ?) AS `sub`
+prisma:query SELECT COUNT(*) AS `_count$_all` FROM (SELECT `main`.`Notification`.`id` FROM `main`.`Notification` WHERE 1=1 LIMIT ? OFFSET ?) AS `sub`
+ POST /api/seed 200 in 35ms (next.js: 23ms, application-code: 12ms)
+ POST /api/chat 200 in 1311ms (next.js: 109ms, application-code: 1202ms)

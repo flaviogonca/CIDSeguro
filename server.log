@@ -1,0 +1,10 @@
+▲ Next.js 16.2.9
+- Local:         http://localhost:3000
+- Network:       http://0.0.0.0:3000
+✓ Ready in 0ms
+prisma:query SELECT `main`.`Notification`.`id`, `main`.`Notification`.`title`, `main`.`Notification`.`content`, `main`.`Notification`.`type`, `main`.`Notification`.`priority`, `main`.`Notification`.`read`, `main`.`Notification`.`createdAt` FROM `main`.`Notification` WHERE 1=1 ORDER BY `main`.`Notification`.`createdAt` DESC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Article`.`id`, `main`.`Article`.`title` FROM `main`.`Article` WHERE 1=1 LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Tip`.`id`, `main`.`Tip`.`title` FROM `main`.`Tip` WHERE 1=1 LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`Quiz`.`id`, `main`.`Quiz`.`title` FROM `main`.`Quiz` WHERE 1=1 LIMIT ? OFFSET ?
+prisma:query SELECT COUNT(*) AS `_count$_all` FROM (SELECT `main`.`CommunityPost`.`id` FROM `main`.`CommunityPost` WHERE 1=1 LIMIT ? OFFSET ?) AS `sub`
+prisma:query SELECT COUNT(*) AS `_count$_all` FROM (SELECT `main`.`Notification`.`id` FROM `main`.`Notification` WHERE 1=1 LIMIT ? OFFSET ?) AS `sub`

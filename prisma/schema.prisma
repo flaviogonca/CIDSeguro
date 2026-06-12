@@ -1,0 +1,123 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Article {
+  id          String   @id @default(cuid())
+  title       String
+  content     String
+  category    String   @default("geral")
+  imageUrl    String?
+  readTime    Int      @default(5)
+  views       Int      @default(0)
+  featured    Boolean  @default(false)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Tip {
+  id          String   @id @default(cuid())
+  title       String
+  content     String
+  category    String   @default("geral")
+  icon        String   @default("💡")
+  likes       Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+model Quiz {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  difficulty  String   @default("iniciante")
+  category    String   @default("geral")
+  createdAt   DateTime @default(now())
+  questions   QuizQuestion[]
+}
+
+model QuizQuestion {
+  id          String   @id @default(cuid())
+  quizId      String
+  question    String
+  options     String   // JSON array of options
+  correctIndex Int
+  explanation String
+  quiz        Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+}
+
+model CommunityPost {
+  id          String   @id @default(cuid())
+  authorName  String
+  title       String
+  content     String
+  category    String   @default("geral")
+  likes       Int      @default(0)
+  replies     Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  comments    CommunityComment[]
+}
+
+model CommunityComment {
+  id          String   @id @default(cuid())
+  postId      String
+  authorName  String
+  content     String
+  likes       Int      @default(0)
+  post        CommunityPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+}
+
+model SecurityReport {
+  id          String   @id @default(cuid())
+  url         String
+  analysis    String   // JSON analysis result
+  riskLevel   String   @default("desconhecido")
+  createdAt   DateTime @default(now())
+}
+
+model Notification {
+  id          String   @id @default(cuid())
+  title       String
+  content     String
+  type        String   @default("info")
+  priority    String   @default("media")
+  read        Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model UserPoints {
+  id          String   @id @default(cuid())
+  sessionId   String   @unique
+  points      Int      @default(0)
+  level       Int      @default(1)
+  badges      String   @default("[]") // JSON array
+  quizzesCompleted Int @default(0)
+  articlesRead Int @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ScanHistory {
+  id         String   @id @default(cuid())
+  url        String
+  riskLevel  String
+  riskScore  Int
+  isPhishing Boolean
+  createdAt  DateTime @default(now())
+}
+
+model SecurityChecklist {
+  id             String   @id @default(cuid())
+  userId         String?
+  completedItems String
+  updatedAt      DateTime @updatedAt
+  createdAt      DateTime @default(now())
+}
